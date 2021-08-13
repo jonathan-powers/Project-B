@@ -24,3 +24,5 @@ Project-B/HomeTour/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache
 Project-B/HomeTour/.metadata/.plugins/org.eclipse.ui.intro/introstate
 *.check
 *.ini
+Project-B/HomeTour/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+*.history
