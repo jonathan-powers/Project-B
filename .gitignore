@@ -28,3 +28,7 @@ Project-B/HomeTour/.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamp
 *.history
 *.png
 *.launch
+Project-B/HomeTour/.classpath
+Project-B/HomeTour/.project
+Project-B/HomeTour/bin/fixtures/Room.class
+*.class
