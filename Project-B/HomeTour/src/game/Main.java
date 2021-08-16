@@ -17,6 +17,8 @@ public class Main {
 	public static void main(String[] args) {
 		Main.userinput = new Scanner(System.in);
 		
+		System.out.println("Welcome to HouseTour");
+		
 		Main.player = new Player();
 		
 		Main.roomManager= new RoomManager();
@@ -24,8 +26,6 @@ public class Main {
 		Main.exitprogram = false;
 		
 		roomManager.init();
-		
-		System.out.println("Welcome to HouseTour");
 		
 		while (Main.exitprogram == false) {
 			System.out.println("What would you like to do?");
@@ -102,10 +102,26 @@ public class Main {
 		Thing[] things = player.currentRoom.getInterior(); 
 		
 		for (int i = 0; i < command.length; i++) {
+			
+			for (int j = 0; j < player.currentRoom.exits.length; j++) {
+				
+				if(player.currentRoom.exits[j] != null) {
+					String obj = player.currentRoom.exits[j].getname();
+				
+					if(obj.equalsIgnoreCase(command[i])) {
+						System.out.println( player.currentRoom.exits[j].getshortDesc());
+						break;
+					}
+				}
+			}
+			
 			for (int j = 0; j < things.length; j++) {
 				String obj = things[j].getname(); 
+				
 				if (obj.equalsIgnoreCase(command[i])) {
 					System.out.println(things[j].getlongDesc());
+					
+					break;
 				}
 			}
 		}

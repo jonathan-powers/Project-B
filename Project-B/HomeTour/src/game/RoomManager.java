@@ -100,23 +100,23 @@ public class RoomManager {
 		
 		RoomManager.rooms  = new Room[3][3];
 		
-		RoomManager.room1 = new Room("Room1 name","Room1 short","Room1 long");
+		RoomManager.room1 = new Room("Room1","Room1 short","Room1 long");
 		
-		RoomManager.room2 = new Room("Room2 name","Room2 short","Room2 long");
+		RoomManager.room2 = new Room("Room2","Room2 short","Room2 long");
 		
-		RoomManager.room3 = new Room("Room3 name","Room3 short","Room3 long");
+		RoomManager.room3 = new Room("Room3","Room3 short","Room3 long");
 		
-		RoomManager.room4 = new Room("Room4 name","Room4 short","Room4 long");
+		RoomManager.room4 = new Room("Room4","Room4 short","Room4 long");
 		
-		RoomManager.room5 = new Room("Room5 name","Room5 short","Room5 long");
+		RoomManager.room5 = new Room("Room5","Room5 short","Room5 long");
 		
-		RoomManager.room6 = new Room("Room6 name","Room6 short","Room6 long");
+		RoomManager.room6 = new Room("Room6","Room6 short","Room6 long");
 		
-		RoomManager.room7 = new Room("Room7 name","Room7 short","Room7 long");
+		RoomManager.room7 = new Room("Room7","Room7 short","Room7 long");
 		
-		RoomManager.room8 = new Room("Room8 name","Room8 short","Room8 long");
+		RoomManager.room8 = new Room("Room8","Room8 short","Room8 long");
 		
-		RoomManager.room9 = new Room("Room9 name","Room9 short","Room9 long");
+		RoomManager.room9 = new Room("Room9","Room9 short","Room9 long");
 	}
 	
 	public static void assignrooms() {
