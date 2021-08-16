@@ -15,33 +15,27 @@ public class Main {
 	private static RoomManager roomManager;
 
 	public static void main(String[] args) {
-		Main.userinput = new Scanner(System.in);
+		userinput = new Scanner(System.in);
 		
 		System.out.println("Welcome to HouseTour");
 		
-		Main.player = new Player();
+		player = new Player();
 		
-		Main.roomManager= new RoomManager();
+		roomManager= new RoomManager();
 		
-		Main.exitprogram = false;
+		exitprogram = false;
 		
 		roomManager.init();
 		
 		while (Main.exitprogram == false) {
 			System.out.println("What would you like to do?");
-			String[] input = Main.collectInput();
-			for (int i = 0; i < input.length; i++) {
-				if (input[i].equalsIgnoreCase("quit")) {
-					System.out.println("Leaving Program");
-					exitprogram = true;
-				} else {
-					Main.parse(input, Main.player);
-					break;
-				}
-			}
+			
+			String[] input = collectInput();
+
+			Main.parse(input, player);							
 		}
 		
-		Main.userinput.close();
+		userinput.close();
 	}
 		
 	private static void printRoom(Player player) {
@@ -68,21 +62,23 @@ public class Main {
 			
 			switch (command[i]) {
 			case "go": case "move":
-				Main.changeRoom(command, player);
+				changeRoom(command, player);
 			
 				break;
 			case "examine": case "look":
-				Main.look(command, player);
+				look(command, player);
 				break;
 			case "where":
-				Main.printRoom(player);
+				printRoom(player);
 				break;
-
+			case "quit":
+				userinput.close();
+				break;
 			default:
-				//System.out.println("What?");
 				break;
 			}
 		}
+		//System.out.println("What?");
 	}
 	
 	private static void changeRoom(String[] command, Player player) {
