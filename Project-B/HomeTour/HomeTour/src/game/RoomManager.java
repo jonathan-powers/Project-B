@@ -42,23 +42,21 @@ public class RoomManager {
 	
 	public static Thing object9;
 	
-	public static Room[][] rooms;
-	
-	/*public RoomManager(Room startingRoom,Room[][] rooms) {
-		
-		this.startingRoom = startingRoom;
-		this.rooms = rooms;
-	}*/
+	public static Room[][] rooms;	
 	
 	public void init() {
 		
 		createrooms();
+		//sets up the rooms array and individual rooms
 		
 		assignrooms();
+		//assigns individual rooms to place in rooms array
 		
 		createinterior();
+		//creates things objects
 		
 		assigninterior();
+		//places things into rooms
 		
 		int[] index = new int[2];
 		
@@ -70,33 +68,47 @@ public class RoomManager {
 				exitSetup(rooms, rooms[i][j], index);
 			}
 			
-		}
+		}// assigns exits to all rooms in the array
 		
 		Main.player.setCurrentRoom(rooms[0][0]);
+		// starts the player in the first room
 		
 	}
 	public static Room[] exitSetup(Room[][] rooms,Room currentroom, int[] index) {
+		//assigns exits to adjacent rooms in the rooms array
+		//leaves as null if there is no exit in direction
 
 		currentroom.exits = new Room[4];
 		
-		// need to handle edge/corner rooms
+		if(index[0] < rooms.length-1) {
+			//leaves exit as null if room is at "top" of array
+			
+			currentroom.exits[0] = rooms[index[0]+1][index[1]];
+			}//assigns north exit to value with same index in next array
 		
-		if(index[0] < rooms.length-1) {currentroom.exits[0] = rooms[index[0]+1][index[1]];}
-		//assigns north exit to value with same index in next array
+		if(index[1] < rooms[index[0]].length-1) {
+			//leaves exit as null if room is last room in array
+			
+			currentroom.exits[1] = rooms[index[0]][index[1]+1];
+			}//assigns east exit to next index in current array
 		
-		if(index[1] < rooms[index[0]].length-1) {currentroom.exits[1] = rooms[index[0]][index[1]+1];}
-		//assigns east exit to next index in current array
+		if(index[0] != 0) {
+			//leaves exit as null if room at "bottom" of array
+			
+			currentroom.exits[2] = rooms[index[0]-1][index[1]];
+			}//assign south exit to value with same index in previous array
 		
-		if(index[0] != 0) {currentroom.exits[2] = rooms[index[0]-1][index[1]];}
-		//assign south exit to value with same index in previous array
-		
-		if(index[1] != 0) {currentroom.exits[3] = rooms[index[0]][index[1]-1];}
-		//assign west exit to value previous index in current array
+		if(index[1] != 0) {
+			//leaves exit as null if room is first room in array
+			
+			currentroom.exits[3] = rooms[index[0]][index[1]-1];
+			}//assign west exit to value previous index in current array
 
 		return currentroom.exits;
 	}
 	
 	public static void createrooms() {
+		//sets up the rooms array and individual rooms
 		
 		RoomManager.rooms  = new Room[3][3];
 		
@@ -120,6 +132,8 @@ public class RoomManager {
 	}
 	
 	public static void assignrooms() {
+		//assigns individual rooms to place in rooms array
+		
 		rooms[0][0] = room1;
 		
 		rooms[0][1] = room2;
@@ -140,6 +154,8 @@ public class RoomManager {
 	}
 	
 	public static void createinterior() {
+		//creates things 
+		
 		object1 = new Thing("object1","object1 short","object1 long");
 		
 		object2 = new Thing("object2","object2 short","object2 long");
@@ -160,40 +176,42 @@ public class RoomManager {
 	}
 	
 	public static void assigninterior() {
-		room1.interior[0] = object1;
-		room1.interior[1] = object2;
-		room1.interior[2] = object3;
+		//places things into rooms
 		
-		room2.interior[0] = object2;
-		room2.interior[1] = object3;
-		room2.interior[2] = object4;
+		room1.getInterior()[0] = object1;
+		room1.getInterior()[1] = object2;
+		room1.getInterior()[2] = object3;
 		
-		room3.interior[0] = object3;
-		room3.interior[1] = object4;
-		room3.interior[2] = object5;
+		room2.getInterior()[0] = object2;
+		room2.getInterior()[1] = object3;
+		room2.getInterior()[2] = object4;
 		
-		room4.interior[0] = object4;
-		room4.interior[1] = object5;
-		room4.interior[2] = object6;
+		room3.getInterior()[0] = object3;
+		room3.getInterior()[1] = object4;
+		room3.getInterior()[2] = object5;
 		
-		room5.interior[0] = object5;
-		room5.interior[1] = object6;
-		room5.interior[2] = object7;
+		room4.getInterior()[0] = object4;
+		room4.getInterior()[1] = object5;
+		room4.getInterior()[2] = object6;
 		
-		room6.interior[0] = object6;
-		room6.interior[1] = object7;
-		room6.interior[2] = object8;
+		room5.getInterior()[0] = object5;
+		room5.getInterior()[1] = object6;
+		room5.getInterior()[2] = object7;
 		
-		room7.interior[0] = object7;
-		room7.interior[1] = object8;
-		room7.interior[2] = object9;
+		room6.getInterior()[0] = object6;
+		room6.getInterior()[1] = object7;
+		room6.getInterior()[2] = object8;
 		
-		room8.interior[0] = object8;
-		room8.interior[1] = object9;
-		room8.interior[2] = object1;
+		room7.getInterior()[0] = object7;
+		room7.getInterior()[1] = object8;
+		room7.getInterior()[2] = object9;
 		
-		room9.interior[0] = object9;
-		room9.interior[1] = object1;
-		room9.interior[2] = object2;
+		room8.getInterior()[0] = object8;
+		room8.getInterior()[1] = object9;
+		room8.getInterior()[2] = object1;
+		
+		room9.getInterior()[0] = object9;
+		room9.getInterior()[1] = object1;
+		room9.getInterior()[2] = object2;
 	}
 }
