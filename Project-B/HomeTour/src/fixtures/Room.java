@@ -4,10 +4,12 @@ public class Room extends Fixture{
 	
 	public Room[] exits;
 	
-	private Thing[] interior;
+	public Thing[] interior;
 	
 	public Room(String name, String shortDesc, String longDesc) {
 		super(name, shortDesc, longDesc);
+		
+		this.interior = new Thing[3];
 		
 	}
 	

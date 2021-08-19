@@ -12,17 +12,27 @@ public class Main {
 	
 	public static Player player;
 
+	private static RoomManager roomManager;
+
 	public static void main(String[] args) {
 		Main.userinput = new Scanner(System.in);
 		
+		System.out.println("Welcome to HouseTour");
+		
 		Main.player = new Player();
+		
+		Main.roomManager= new RoomManager();
 		
 		Main.exitprogram = false;
 		
+		roomManager.init();
+		
 		while (Main.exitprogram == false) {
+			System.out.println("What would you like to do?");
 			String[] input = Main.collectInput();
 			for (int i = 0; i < input.length; i++) {
-				if (input[i] == "quit") {
+				if (input[i].equalsIgnoreCase("quit")) {
+					System.out.println("Leaving Program");
 					exitprogram = true;
 				} else {
 					Main.parse(input, Main.player);
@@ -68,7 +78,7 @@ public class Main {
 				break;
 
 			default:
-				System.out.println("What?");
+				//System.out.println("What?");
 				break;
 			}
 		}
@@ -85,17 +95,33 @@ public class Main {
 				break;
 			} 
 		}
-		System.out.println("that is not a valid direction");
+		//System.out.println("that is not a valid direction");
 	}
 	
 	private static void look(String[] command, Player player) {
 		Thing[] things = player.currentRoom.getInterior(); 
 		
 		for (int i = 0; i < command.length; i++) {
+			
+			for (int j = 0; j < player.currentRoom.exits.length; j++) {
+				
+				if(player.currentRoom.exits[j] != null) {
+					String obj = player.currentRoom.exits[j].getname();
+				
+					if(obj.equalsIgnoreCase(command[i])) {
+						System.out.println( player.currentRoom.exits[j].getshortDesc());
+						break;
+					}
+				}
+			}
+			
 			for (int j = 0; j < things.length; j++) {
 				String obj = things[j].getname(); 
+				
 				if (obj.equalsIgnoreCase(command[i])) {
 					System.out.println(things[j].getlongDesc());
+					
+					break;
 				}
 			}
 		}
