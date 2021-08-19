@@ -130,8 +130,7 @@ public class Main {
 		}
 	}
 	
-	private static void look(String[] command, Player player) {
-		Thing[] things = player.getCurrentRoom().getInterior(); 
+	private static void look(String[] command, Player player) { 
 		
 		for (int i = 0; i < command.length; i++) {
 			//iterates over the words in the user input
@@ -153,15 +152,24 @@ public class Main {
 					}
 				}
 			}
-			
-			for (int j = 0; j < things.length; j++) {
-				String obj = things[j].getname(); 
+			// checks if the object is in the room
+			for (int j = 0; j < player.getCurrentRoom().getInv().size(); j++) {
+				String obj = player.getCurrentRoom().getInv().get(j).getname(); 
 				
 				if (obj.equalsIgnoreCase(command[i])) {
-					System.out.println(things[j].getlongDesc());
+					System.out.println(player.getCurrentRoom().getInv().get(j).getlongDesc());
 					
 					break;
 				}
+			}
+			//checks the players inventory for the object
+			for (int k = 0; k < player.getInv().size(); k++) {
+				String obj = player.getInv().get(k).getname();
+				
+				if (obj.equalsIgnoreCase(command[i])) {
+					System.out.println(player.getInv().get(k).getlongDesc());
+				}
+				
 			}
 		}
 	}
@@ -173,7 +181,7 @@ public class Main {
 			for (int j = 0; j < player.getCurrentRoom().getInv().size(); j++) {
 				//iterates over the objects in the current room
 				
-				if(command[i] == player.getCurrentRoom().getInv().get(j).getname()) {
+				if(command[i].equalsIgnoreCase(player.getCurrentRoom().getInv().get(j).getname())) {
 					//checks if the user input matches any objects in the room
 					
 					System.out.println("You picked up " + player.getCurrentRoom().getInv().get(j).getname());
@@ -192,7 +200,7 @@ public class Main {
 			for (int j = 0; j < player.getInv().size(); j++) {
 				//iterates over the objects in the players inventory
 				
-				if(command[i] == player.getInv().get(j).getname()) {
+				if(command[i].equalsIgnoreCase(player.getInv().get(j).getname())) {
 					//checks if the user input matches any of the objects in the player's inventory
 					
 					System.out.println("You dropped " + player.getInv().get(j).getname() + " in " + player.getCurrentRoom().getname());

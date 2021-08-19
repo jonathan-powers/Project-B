@@ -24,16 +24,19 @@ public class Player {
 		System.out.println(this.currentRoom.getlongDesc());
 		//prints the long description of the new room
 		
-		System.out.println("The" + this.currentRoom.getname() + "contains:");
-		for (int i = 0; i < this.currentRoom.getInterior().length; i++) {
-			System.out.println(this.currentRoom.getInterior()[i].getshortDesc());
+		System.out.println("The " + this.currentRoom.getname() + " contains:");
+		for (int i = 0; i < this.currentRoom.getInv().size(); i++) {
+			System.out.println(this.currentRoom.getInv().get(i).getshortDesc());
 		}//lists the objects in the interior
+		
+		String[] direction = {"North","East","South","West"};
+		//direction Array
 		
 		for (int i = 0; i < this.currentRoom.getExits().length; i++) {
 			if (this.currentRoom.getExits()[i] != null) {
 				//if there is no exit returns null
 				
-				System.out.println("Exit " + i + ":" + this.currentRoom.getExits()[i].getname());
+				System.out.println(direction[i] + "Exit: " + this.currentRoom.getExits()[i].getname());
 			}//lists the exits to the new room
 		}
 		

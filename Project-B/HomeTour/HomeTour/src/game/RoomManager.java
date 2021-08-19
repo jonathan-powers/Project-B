@@ -179,39 +179,31 @@ public class RoomManager {
 		//places things into rooms
 		
 		room1.getInterior()[0] = object1;
-		room1.getInterior()[1] = object2;
-		room1.getInterior()[2] = object3;
+		room1.getInv().add(object1);
 		
 		room2.getInterior()[0] = object2;
-		room2.getInterior()[1] = object3;
-		room2.getInterior()[2] = object4;
+		room2.getInv().add(object2);
 		
 		room3.getInterior()[0] = object3;
-		room3.getInterior()[1] = object4;
-		room3.getInterior()[2] = object5;
+		room3.getInv().add(object3);
 		
 		room4.getInterior()[0] = object4;
-		room4.getInterior()[1] = object5;
-		room4.getInterior()[2] = object6;
+		room4.getInv().add(object4);
 		
 		room5.getInterior()[0] = object5;
-		room5.getInterior()[1] = object6;
-		room5.getInterior()[2] = object7;
+		room5.getInv().add(object5);
 		
 		room6.getInterior()[0] = object6;
-		room6.getInterior()[1] = object7;
-		room6.getInterior()[2] = object8;
+		room6.getInv().add(object6);
 		
 		room7.getInterior()[0] = object7;
-		room7.getInterior()[1] = object8;
-		room7.getInterior()[2] = object9;
+		room7.getInv().add(object7);
 		
 		room8.getInterior()[0] = object8;
-		room8.getInterior()[1] = object9;
-		room8.getInterior()[2] = object1;
+		room8.getInv().add(object8);
 		
 		room9.getInterior()[0] = object9;
-		room9.getInterior()[1] = object1;
-		room9.getInterior()[2] = object2;
+		room9.getInv().add(object9);
+
 	}
 }
