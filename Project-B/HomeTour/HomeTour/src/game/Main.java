@@ -99,7 +99,7 @@ public class Main {
 				break;
 			case "quit":
 				exitprogram = true;
-				
+				System.out.println("Leaving Home Tour");
 				userinput.close();
 				break;
 			default:
