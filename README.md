@@ -1,7 +1,7 @@
 # Project-B
 Home Tour
 
-This is a program that allows you to move through a 2D grid of rooms. The rooms contain objects you can look at, carry with you, and drop at a later time. 
+This is a program that allows you to move through a 2D grid of rooms. The rooms contain objects you can look at, carry with you, and drop at a later time. You can enter commands in regular speech. e.g. "I move to the room to the east", as long as the command contains the correct words(Puncuation is fine).
 
 Command List:
 
