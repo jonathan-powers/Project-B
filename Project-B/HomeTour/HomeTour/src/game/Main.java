@@ -97,6 +97,27 @@ public class Main {
 			case "inventory":
 				player.listinv();
 				break;
+			case "roomaction":
+				if(player.getCurrentRoom().equals(RoomManager.room2)) {
+					System.out.println("Action can only be done in current room");
+				} else {
+					System.out.println("You can't do that here");
+				}
+				break;
+			case "itemaction":
+				for (int j = 0; j < player.getInv().size(); j++ ) {
+					if (player.getInv().get(j).equals(RoomManager.object1)) {
+						System.out.println("Action can only be done with this item");
+						break;
+					}
+				}
+				for (int j = 0; j < player.getCurrentRoom().getInv().size(); j++) {
+					if (player.getCurrentRoom().getInv().get(j).equals(RoomManager.object1)) {
+						System.out.println("Action can only be done with this item");
+						break;
+					}
+				}
+				break;
 			case "quit":
 				exitprogram = true;
 				System.out.println("Leaving Home Tour");
